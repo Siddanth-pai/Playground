@@ -2,6 +2,9 @@ from django.db import models
 from django.utils import timezone
 # Create your models here.
 from django.contrib.auth.models import User
+
+
+
 class Post(models.Model):
     title = models.CharField(max_length = 100)
     content = models.TextField()
@@ -9,4 +12,4 @@ class Post(models.Model):
     author = models.ForeignKey(User,on_delete = models.CASCADE)#if a user is deleted then delete the post
 
     def __str__(self):
-        return self.title()
+        return self.title

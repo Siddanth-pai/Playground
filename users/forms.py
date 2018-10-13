@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile
+from .models import Profile,Video,Audio
 
 
 class UserRegisterForm(UserCreationForm):
@@ -11,7 +11,7 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta: # this class gives us nested namespace for configuarations and keeps the configuartions at one place....forms.save will save in thb euser model
          model = User
-         fields = ['username','email','password1','password2']
+         fields = ('username','email','password1',)
 
 
 
@@ -29,3 +29,14 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields =['image']
+
+
+class VideoForm(forms.ModelForm):
+    class Meta:
+        model = Video
+        fields=["name","videofile"]
+
+class AudioForm(forms.ModelForm):
+    class Meta:
+        model = Audio
+        fields=["name","audiofile"]

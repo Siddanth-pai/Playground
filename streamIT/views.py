@@ -1,29 +1,26 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404,redirect
+from django.views.generic import ListView,DetailView#for class based views
 from django.http import HttpResponse
 # Create your views here.
-posts = [
-  {
-     'author' :'Siddanth',
-     'title':'Blog Post 1',
-     'content': 'First post content',
-     'date_posted':'August,2018',
-  },
-  {
-     'author' :'Sid',
-     'title':'Blog Post 2',
-     'content':'Secondt post content',
-     'date_posted':'August,2018'
-  },
-]
+from .models import Post
 #handles the traffic and then returns what user wants to see
+
+#class based views
 
 def home(request):
      context ={
-     'posts':posts
+     'posts':Post.objects.all()
      }
      return render(request,'streamIT/home.html',context)#render is a shortcut that helps with passing the request to
      #the render function returns a http HttpResponse
      #our views need to return an http response or exception
+
+
+class PostListView(ListView):
+     model=  Post                         # what model to query  inorder to create list
+     template_name = 'streamIT/home.html'# <app>/<model>_<viewtype>.html
+     context_object_name = 'posts'#atttribute otherwisewe need to use 'objectlist'
+     ordering = ['-date_posted']# for displaying the post from newest to oldest
 
 
 def about(request):

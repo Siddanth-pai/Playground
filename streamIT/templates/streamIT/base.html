@@ -30,7 +30,7 @@
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{% url 'vlog-home' %}">Home</a>  <!-- the url-name is used so that we can avoid hard coding when the url changes -->
-              <a class="nav-item nav-link" href="{% url 'vlog-about' %}">About</a>
+              <a class="nav-item nav-link" href="{% url 'showvideo' %}">About</a>
 
             </div>
             <!-- Navbar Right Side -->
@@ -60,7 +60,9 @@
          </div>
           {% endfor %}
           {% endif %}
-          {% block content %}{% endblock %}
+          {% block content %} 
+
+           {% endblock %}
         </div>
         <div class="col-md-4">
           <div class="content-section">

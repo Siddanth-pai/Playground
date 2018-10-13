@@ -26,7 +26,8 @@ urlpatterns = [
     path('login/',auth_views.LoginView.as_view(template_name = 'users/login.html'),name = 'login'),
     path('logout/',auth_views.LogoutView.as_view(template_name = 'users/logout.html'),name = 'logout'),
     path('profile/',user_views.profile,name = 'profile'),
-    path('', include('streamIT.urls')),#this over here maps streamIT to streamIT/urls........then that maps views.home
+    #path('videos/',user_views.showvideo,name = 'showvideo'),
+    path('', include('streamIT.urls')),  #this over here maps streamIT to streamIT/urls........then that maps views.home
 ]
 #by leaving the path empty we are making this the homepage of the entire website
 

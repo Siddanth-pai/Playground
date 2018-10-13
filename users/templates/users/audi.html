@@ -1,0 +1,32 @@
+
+{% extends "streamIT/base.html" %}
+
+{% block content %}
+
+<div class='row'>
+  <h1>Audio Uploader</h1>
+  <form enctype = "multipart/form-data" class="" action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" name="" value="Upload"/>
+  </form>
+  <br><br>
+    {% for vieo in lastaudio %}
+    <audio controls id="myAudio">
+      <source src="{{MEDIA_URL}}{{vieo.audiofile}}" type="audio/mp3">
+
+
+        Your browser does not support the audio element.
+    </audio>
+
+
+     {% endfor %}
+
+
+    <br><br>
+
+    <p>Click the buttons to play or pause the audio.</p>
+
+
+
+{% endblock %}

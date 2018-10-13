@@ -12,10 +12,10 @@
         </div>
       </div>
       <!-- FORM HERE -->
-      <form  method="POST">
+      <form  method="POST" enctype='multipart/form-data'><!-- entype means encoding type so that images are passed properly....images will not be saved -->
         {% csrf_token  %}
         <fieldset class="form-group">
-          <legend class = "border-bottom mb-4">Join Today</legend>
+          <legend class = "border-bottom mb-4">Profile Info</legend>
            <!--{{  form.as_p  }} not required as crispy_forms will take care of it -->
            {{ u_form|crispy }}
            {{ p_form|crispy }}
